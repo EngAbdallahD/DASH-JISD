@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Under Maintenance | التطبيق تحت الصيانة</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts for premium Latin (Inter) & Arabic (Tajawal) typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Tajawal:wght@900&display=swap" rel="stylesheet">
+
+  <!-- Custom Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            arabic: ['Tajawal', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Slow floating/bobbing animation for the warning sign */
+    @keyframes float {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+        filter: drop-shadow(0 10px 20px rgba(239, 68, 68, 0.2));
+      }
+      50% {
+        transform: translateY(-25px) rotate(1deg);
+        filter: drop-shadow(0 30px 35px rgba(239, 68, 68, 0.45));
+      }
+      100% {
+        transform: translateY(0px) rotate(0deg);
+        filter: drop-shadow(0 10px 20px rgba(239, 68, 68, 0.2));
+      }
+    }
+
+    /* Pulsating outer red glow */
+    @keyframes pulse-glow {
+      0%, 100% {
+        opacity: 0.15;
+        transform: scale(0.95);
+      }
+      50% {
+        opacity: 0.35;
+        transform: scale(1.1);
+      }
+    }
+
+    /* Subtle grid pattern background */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-pulse-glow {
+      animation: pulse-glow 4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen relative overflow-hidden flex flex-col justify-between bg-grid">
+
+  <!-- Decorative Ambient Neon Glow Backgrounds -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[450px] bg-red-900/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <div class="absolute top-[20%] left-[15%] w-[180px] h-[180px] bg-rose-500/5 rounded-full blur-[90px] pointer-events-none -z-10"></div>
+  <div class="absolute bottom-[20%] right-[15%] w-[220px] h-[220px] bg-amber-500/5 rounded-full blur-[110px] pointer-events-none -z-10"></div>
+
+  <!-- Top Spacing -->
+  <div></div>
+
+  <!-- Main Centered Showcase Container -->
+  <main class="flex flex-col items-center justify-center px-6 py-12 w-full z-10 text-center">
+    
+    <!-- Floating Red Warning Sign Area -->
+    <div class="relative flex items-center justify-center w-72 h-72 mb-12">
+      <!-- Pulsating outer energy field -->
+      <div class="absolute w-64 h-64 rounded-full bg-red-600/20 blur-3xl animate-pulse-glow"></div>
+      
+      <!-- Floating warning container -->
+      <div class="animate-float z-10">
+        <!-- SVG Warning Triangle Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-56 h-56 text-rose-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Background Triangle Glow Layer -->
+          <polygon points="12 2 22 22 2 22" fill="currentColor" fill-opacity="0.04"></polygon>
+          <!-- Outer glowing border -->
+          <polygon points="12 2 22 22 2 22" stroke="url(#redGrad)" stroke-width="1.8" filter="drop-shadow(0 0 12px rgba(239, 68, 68, 0.6))"></polygon>
+          
+          <!-- Exclamation mark line -->
+          <line x1="12" y1="8" x2="12" y2="15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></line>
+          <!-- Exclamation point dot -->
+          <circle cx="12" cy="19" r="1.25" fill="currentColor"></circle>
+
+          <!-- Gradients definition -->
+          <defs>
+            <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ef4444" />
+              <stop offset="50%" stop-color="#f43f5e" />
+              <stop offset="100%" stop-color="#ea580c" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <!-- The Two Specified Lines of Text -->
+    <div class="space-y-6 max-w-4xl px-4">
+      
+      <!-- Line 1: English -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-white to-slate-400">
+        APP UNDER MAINTENANCE
+      </h1>
+
+      <!-- Line 2: Arabic -->
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-rose-400 to-amber-300 font-arabic" dir="rtl">
+        التطبيق حالياً تحت الصيانة
+      </h2>
+
+    </div>
+
+  </main>
+
+  <!-- Bottom Footer with Credit -->
+  <footer class="w-full text-center pb-12 pt-6 px-6 z-10">
+    <div class="text-xs sm:text-sm font-semibold tracking-[0.25em] text-slate-500 uppercase hover:text-rose-500/80 transition-colors duration-300">
+      Designed by Abdallah H Dmour
+    </div>
+  </footer>
+
+</body>
+</html>
